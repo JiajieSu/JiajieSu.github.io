@@ -56,7 +56,7 @@ window.I18N = {
     "home.interests.title": "驱动我研究的三个问题",
     "home.interests.intro":
       "从机械工程走向心理学,而下面每一个问题,都需要这两种背景的同时在场。",
-    "home.ic1.title": "人因工程与晕动症",
+    "home.ic1.title": "人因工程",
     "home.ic1.text":
       "为什么 VR 和自动驾驶会让人晕?我用 DTI 脑网络特征预测个体的晕动症易感性,并研究成人与儿童在相关脑区上的差异。",
     "home.ic2.title": "人与技术的交互",
