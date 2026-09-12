@@ -120,7 +120,7 @@ window.I18N = {
     "about.tl2.title": "机械与自动化工程 研究型硕士",
     "about.tl2.org": "香港中文大学",
     "about.tl2.text":
-      "GPA 3.4/4.0 · 课题等级 A−。微型机器人集群的 YOLOv8 + DeepSORT 轨迹追踪。",
+      "GPA 3.4/4.0 · 课题等级 A−。微型机器人集群的轨迹追踪。",
     "about.tl3.period": "2024 年 9 月 – 2025 年 8 月",
     "about.tl3.title": "机电设计实习生",
     "about.tl3.org": "中科院香港创新人工智能与机器人中心(CAIR)",
