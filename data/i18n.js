@@ -35,7 +35,7 @@ window.I18N = {
     "doc.contact": "联系方式 — 苏家洁",
     "nav.about": "关于我",
     "nav.research": "科研经历",
-    "nav.projects": "工程项目",
+    "nav.projects": "项目",
     "nav.publications": "论文与专利",
     "nav.contact": "联系方式",
     "footer.role": "深圳大学心理学院科研助理",
