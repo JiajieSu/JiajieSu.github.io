@@ -68,16 +68,27 @@ website/
 ## 明暗模式切换
 右上角按钮自动切换,跟随系统设置。不需要你维护。
 
-## 部署到 GitHub Pages(免费)
-1. 注册 github.com 账号,新建仓库,仓库名建议 `username.github.io`(这样网址是 `https://username.github.io`),或任意名(网址为 `https://username.github.io/仓库名`);
-2. 上传本文件夹全部内容(网页界面上传或用 GitHub Desktop 拖入);
-3. 仓库 Settings → Pages → Source 选 `main` 分支 → Save;
-4. 等几分钟,网站就在 `https://你的用户名.github.io` 上线;
-5. 以后每次修改:上传改动后的文件到 GitHub,网站自动更新。
+## 部署状态:已上线 ✔
+
+网站已于 2026-09-12 部署到 GitHub Pages:
+
+- **仓库**:https://github.com/JiajieSu/JiajieSu.github.io
+- **网址**:https://jiajiesu.github.io
+
+### 以后怎么更新网站(两种方法)
+
+**方法 A:直接在 GitHub 网页上改(最简单)**
+1. 打开仓库页面,点击要改的文件(比如 `data/research.js`);
+2. 点右上角铅笔图标 ✏️,直接修改文字;
+3. 点绿色 Commit changes 按钮,等 1–2 分钟网站自动更新。
+
+**方法 B:改本地文件再上传**
+1. 双击本地 `index.html` 预览、修改;
+2. 把改过的文件拖到仓库页面的 Add file → Upload files,Commit 即可。
 
 ## 中英文切换(下一阶段)
 等英文内容定稿后,AI 会加一个语言切换按钮:所有界面文字放进一个 `data/i18n.js` 对照表,一键切换。
 
 ## 记录
-- 2026-09-12 初版由 AI 生成(英文版,含 12 张项目图、明暗模式、滚动渐入动画)。
+- 2026-09-12 初版由 AI 生成(英文版,含 12 张项目图、明暗模式、滚动渐入动画);同日部署上线至 https://jiajiesu.github.io。
 - 待你确认后可改:RA 起始月份(现用 Mar 2026)、钉钉杯奖项等级(现写 Second Prize)、晕动症项目的配图。
