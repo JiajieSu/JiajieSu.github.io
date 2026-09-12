@@ -8,12 +8,13 @@
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&family=Public+Sans:wght@300..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&family=Public+Sans:wght@300..700&family=Noto+Serif+SC:wght@400..700&family=Noto+Sans+SC:wght@300..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/lang.js"></script>
 </head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
+<body data-i18n-doc="doc.about">
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
 
   <header class="site-header">
     <div class="container site-header__inner">
@@ -24,19 +25,19 @@
           <path d="M9.5 21.5 C14 16, 16 12, 22.5 10.2"/>
         </svg>
         <span>
-          <span class="brand__name">SU Jiajie</span>
-          <span class="brand__sub">Human Factors · Psychology × Engineering</span>
+          <span class="brand__name" data-i18n="brand.name">SU Jiajie</span>
+          <span class="brand__sub" data-i18n="brand.sub">Human Factors · Psychology × Engineering</span>
         </span>
       </a>
       <nav id="site-nav" class="nav" aria-label="Main">
-        <a href="about.html">About</a>
-        <a href="research.html">Research</a>
-        <a href="projects.html">Projects</a>
-        <a href="publications.html">Publications</a>
-        <a href="cv.html">CV</a>
-        <a href="contact.html">Contact</a>
+        <a href="about.html" data-i18n="nav.about">About</a>
+        <a href="research.html" data-i18n="nav.research">Research</a>
+        <a href="projects.html" data-i18n="nav.projects">Projects</a>
+        <a href="publications.html" data-i18n="nav.publications">Publications</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
       </nav>
       <div class="header-actions">
+        <button class="lang-toggle" data-lang-toggle type="button" aria-label="切换语言">中文</button>
         <button class="theme-toggle" data-theme-toggle type="button" aria-label="Switch theme"></button>
         <button class="nav-toggle" data-nav-toggle type="button" aria-label="Open menu" aria-expanded="false">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
@@ -48,9 +49,9 @@
   <main id="main">
     <div class="page-header">
       <div class="container">
-        <p class="overline">About Me</p>
-        <h1>From building machines to studying the people who use them</h1>
-        <p>Engineer by training, human-factors researcher by direction — I work where apparatus, data, and human experience meet.</p>
+        <p class="overline" data-i18n="about.overline">About Me</p>
+        <h1 data-i18n="about.title">From building machines to studying the people who use them</h1>
+        <p data-i18n="about.intro">Engineer by training, human-factors researcher by direction — I work where apparatus, data, and human experience meet.</p>
       </div>
     </div>
 
@@ -58,54 +59,65 @@
     <section class="section">
       <div class="container container--narrow">
         <div class="fade-in">
-          <p style="font-size: var(--text-base); margin-bottom: var(--space-5);">I am a research assistant at the School of Psychology, Shenzhen University, where I study <strong>motion sickness</strong> — predicting susceptibility from DTI-derived brain networks with machine learning, and examining how predictability cues and non-driving-related tasks interact in automated driving. My daily work spans EEG experiments, VR environment development, and the six-axis motion platform our studies run on.</p>
-          <p style="font-size: var(--text-base); margin-bottom: var(--space-5);">Before psychology, I spent five years as a mechanical engineer: a bachelor's degree ranked 1st of 194 at Dongguan University of Technology, then a master's at The Chinese University of Hong Kong, where I built a YOLOv8 + DeepSORT pipeline for tracking micro-robot swarms, and an internship at the CAS Hong Kong Centre for AI &amp; Robotics, where I worked on teleoperated robotic arms and a patented IMU motion-capture glove. Somewhere between calibrating a robot's eye and designing a glove that reads human fingers, I realized the questions I cared most about were not about the machines — they were about the people operating them.</p>
-          <p style="font-size: var(--text-base); margin-bottom: var(--space-5);">That realization has a practical edge: psychology research on technology needs people who can build the technology. Motion-sickness experiments need VR environments and motion platforms; neural-data studies need reproducible pipelines. My goal for a PhD is human factors and human–technology interaction — continuing to study how humans respond in complex systems, with both the experimental methods of psychology and the engineering ability to build whatever the experiment requires.</p>
+          <p style="font-size: var(--text-base); margin-bottom: var(--space-5);" data-i18n="about.p1">I am a research assistant at the School of Psychology, Shenzhen University, where I study <strong>motion sickness</strong> — predicting susceptibility from DTI-derived brain networks with machine learning, and examining how predictability cues and non-driving-related tasks interact in automated driving. My daily work spans EEG experiments, VR environment development, and the six-axis motion platform our studies run on.</p>
+          <p style="font-size: var(--text-base); margin-bottom: var(--space-5);" data-i18n="about.p2">Before psychology, I spent five years as a mechanical engineer: a bachelor's degree ranked 1st of 194 at Dongguan University of Technology, then a master's at The Chinese University of Hong Kong, where I built a YOLOv8 + DeepSORT pipeline for tracking micro-robot swarms, and an internship at the CAS Hong Kong Centre for AI &amp; Robotics, where I worked on teleoperated robotic arms and a patented IMU motion-capture glove. Somewhere between calibrating a robot's eye and designing a glove that reads human fingers, I realized the questions I cared most about were not about the machines — they were about the people operating them.</p>
+          <p style="font-size: var(--text-base); margin-bottom: var(--space-5);" data-i18n="about.p3">That realization has a practical edge: psychology research on technology needs people who can build the technology. Motion-sickness experiments need VR environments and motion platforms; neural-data studies need reproducible pipelines. My goal for a PhD is human factors and human–technology interaction — continuing to study how humans respond in complex systems, with both the experimental methods of psychology and the engineering ability to build whatever the experiment requires.</p>
         </div>
       </div>
     </section>
 
+
+    <!-- ============ CV BANNER ============ -->
+    <section class="section" style="background: var(--color-surface-2); border-block: 1px solid var(--color-divider); padding-block: var(--space-10);">
+      <div class="container container--narrow">
+        <div class="why-box fade-in" style="padding: var(--space-8);">
+          <span class="field__label" style="font-size: var(--text-xs); letter-spacing: 0.14em;" data-i18n="about.cv.title">Full CV</span>
+          <p class="field__text" style="margin-bottom: var(--space-4);" data-i18n="about.cv.text">Beyond these pages, the complete record — education, research, projects, awards, and patents — is available as a PDF.</p>
+          <a class="btn btn--primary" href="files/SU-Jiajie-CV.pdf" target="_blank" rel="noopener noreferrer" data-i18n="about.cv.btn">View / Download CV (PDF)</a>
+        </div>
+      </div>
+    </section>
     <!-- ============ TIMELINE ============ -->
     <section class="section" style="background: var(--color-surface-2); border-block: 1px solid var(--color-divider);">
       <div class="container">
-        <p class="overline">Full Timeline</p>
-        <h2 class="section-title">Education &amp; experience, in order</h2>
+        <p class="overline" data-i18n="about.timeline.overline">Full Timeline</p>
+        <h2 class="section-title" data-i18n="about.timeline.title">Education &amp; experience, in order</h2>
         <div class="timeline fade-in">
           <div class="timeline__item">
-            <span class="timeline__period">Mar 2026 – Present</span>
-            <span class="timeline__title">Research Assistant</span>
-            <span class="timeline__org">School of Psychology, Shenzhen University</span>
-            <p>Motion-sickness research (DTI brain networks, predictability cues × NDRT), EEG experiments, VR environment &amp; six-axis platform development, mentoring graduate students.</p>
+            <span class="timeline__period" data-i18n="about.tl1.period">Apr 2026 – Present</span>
+            <span class="timeline__title" data-i18n="about.tl1.title">Research Assistant</span>
+            <span class="timeline__org" data-i18n="about.tl1.org">School of Psychology, Shenzhen University</span>
+            <p data-i18n="about.tl1.text">Motion-sickness research (DTI brain networks, predictability cues × NDRT), EEG experiments, VR environment &amp; six-axis platform development, mentoring graduate students.</p>
           </div>
           <div class="timeline__item">
-            <span class="timeline__period">2024 – 2025</span>
-            <span class="timeline__title">M.Sc. Mechanical and Automation Engineering</span>
-            <span class="timeline__org">The Chinese University of Hong Kong</span>
-            <p>GPA 3.4/4.0 · thesis project grade A−. Micro-robot swarm trajectory tracking with YOLOv8 + DeepSORT.</p>
+            <span class="timeline__period" data-i18n="about.tl2.period">2024 – 2025</span>
+            <span class="timeline__title" data-i18n="about.tl2.title">M.Sc. Mechanical and Automation Engineering</span>
+            <span class="timeline__org" data-i18n="about.tl2.org">The Chinese University of Hong Kong</span>
+            <p data-i18n="about.tl2.text">GPA 3.4/4.0 · thesis project grade A−. Micro-robot swarm trajectory tracking with YOLOv8 + DeepSORT.</p>
           </div>
           <div class="timeline__item">
-            <span class="timeline__period">Sep 2024 – Aug 2025</span>
-            <span class="timeline__title">Mechatronics Design Intern</span>
-            <span class="timeline__org">CAS Hong Kong Innovation Centre for AI &amp; Robotics (CAIR)</span>
-            <p>Teleoperated robotic arm, dexterous-hand simulation, hand-eye calibration; co-invented an IMU data glove (patent filed).</p>
+            <span class="timeline__period" data-i18n="about.tl3.period">Sep 2024 – Aug 2025</span>
+            <span class="timeline__title" data-i18n="about.tl3.title">Mechatronics Design Intern</span>
+            <span class="timeline__org" data-i18n="about.tl3.org">CAS Hong Kong Innovation Centre for AI &amp; Robotics (CAIR)</span>
+            <p data-i18n="about.tl3.text">Teleoperated robotic arm, dexterous-hand simulation, hand-eye calibration; co-invented an IMU data glove (patent filed).</p>
           </div>
           <div class="timeline__item">
-            <span class="timeline__period">Aug 2024 – May 2025</span>
-            <span class="timeline__title">Student Assistant, Intubation-Robot Project</span>
-            <span class="timeline__org">Supervised by Prof. Hongliang Ren</span>
-            <p>Endoscope extension control via RoboMaster board and CAN communication; 3D-printed platform design and camera calibration.</p>
+            <span class="timeline__period" data-i18n="about.tl4.period">Aug 2024 – May 2025</span>
+            <span class="timeline__title" data-i18n="about.tl4.title">Student Assistant, Intubation-Robot Project</span>
+            <span class="timeline__org" data-i18n="about.tl4.org">Supervised by Prof. Hongliang Ren</span>
+            <p data-i18n="about.tl4.text">Endoscope extension control via RoboMaster board and CAN communication; 3D-printed platform design and camera calibration.</p>
           </div>
           <div class="timeline__item">
-            <span class="timeline__period">Apr 2023 – Jan 2024</span>
-            <span class="timeline__title">Research Intern, Precision Medical Engineering</span>
-            <span class="timeline__org">Songshan Lake Materials Laboratory</span>
-            <p>Programmed software-defined radios for NMR signal generation; designed and ran NMR experiments on real samples.</p>
+            <span class="timeline__period" data-i18n="about.tl5.period">Apr 2023 – Jan 2024</span>
+            <span class="timeline__title" data-i18n="about.tl5.title">Research Intern, Precision Medical Engineering</span>
+            <span class="timeline__org" data-i18n="about.tl5.org">Songshan Lake Materials Laboratory</span>
+            <p data-i18n="about.tl5.text">Programmed software-defined radios for NMR signal generation; designed and ran NMR experiments on real samples.</p>
           </div>
           <div class="timeline__item timeline__item--muted">
-            <span class="timeline__period">2020 – 2024</span>
-            <span class="timeline__title">B.Eng. Mechanical Design, Manufacturing &amp; Automation</span>
-            <span class="timeline__org">Dongguan University of Technology</span>
-            <p>GPA 3.8/5.0 · rank 1/194 · National Scholarship, Yang Zhenning Scholarship · national innovation-program project lead · 7 patents · 4 national/provincial modeling awards.</p>
+            <span class="timeline__period" data-i18n="about.tl6.period">2020 – 2024</span>
+            <span class="timeline__title" data-i18n="about.tl6.title">B.Eng. Mechanical Design, Manufacturing &amp; Automation</span>
+            <span class="timeline__org" data-i18n="about.tl6.org">Dongguan University of Technology</span>
+            <p data-i18n="about.tl6.text">GPA 3.8/5.0 · rank 1/194 · National Scholarship, Yang Zhenning Scholarship · national innovation-program project lead · 7 patents · 4 national/provincial modeling awards.</p>
           </div>
         </div>
       </div>
@@ -114,35 +126,35 @@
     <!-- ============ SKILLS ============ -->
     <section class="section">
       <div class="container">
-        <p class="overline">Skill Matrix</p>
-        <h2 class="section-title">What I bring to a lab</h2>
+        <p class="overline" data-i18n="about.skills.overline">Skill Matrix</p>
+        <h2 class="section-title" data-i18n="about.skills.title">What I bring to a lab</h2>
         <div class="skills-grid">
           <div class="skill-group fade-in">
-            <h3>Engineering &amp; Design</h3>
+            <h3 data-i18n="about.sk1.title">Engineering &amp; Design</h3>
             <ul class="field__list">
               <li>SolidWorks</li><li>CAD</li><li>3D Printing</li><li>FEA</li><li>Robotic arm control</li><li>ROS</li><li>Hand-eye calibration</li>
             </ul>
           </div>
           <div class="skill-group fade-in">
-            <h3>Programming &amp; Data</h3>
+            <h3 data-i18n="about.sk2.title">Programming &amp; Data</h3>
             <ul class="field__list">
               <li>Python</li><li>MATLAB</li><li>C / C++ / C#</li><li>YOLOv8 / DeepSORT</li><li>Machine learning</li><li>Lingo</li><li>Linux</li>
             </ul>
           </div>
           <div class="skill-group fade-in">
-            <h3>Research Methods</h3>
+            <h3 data-i18n="about.sk3.title">Research Methods</h3>
             <ul class="field__list">
               <li>EEG experiments &amp; processing</li><li>DTI brain networks</li><li>SPSS</li><li>Experimental design</li><li>VR development</li><li>SDR / signal processing</li><li>Psychometrics</li>
             </ul>
           </div>
           <div class="skill-group fade-in">
-            <h3>Languages</h3>
+            <h3 data-i18n="about.sk4.title">Languages</h3>
             <ul class="field__list">
-              <li>Mandarin (native)</li><li>Hakka (native)</li><li>Teochew (native)</li><li>Cantonese (basic)</li><li>English — IELTS 6.5, CET-6</li>
+              <li data-i18n="about.lang1">Mandarin (native)</li><li data-i18n="about.lang2">Hakka (native)</li><li data-i18n="about.lang3">Teochew (native)</li><li data-i18n="about.lang4">Cantonese (basic)</li><li data-i18n="about.lang5">English — IELTS 6.5, CET-6</li>
             </ul>
           </div>
         </div>
-        <p class="field__text" style="margin-top: var(--space-8);">Other: high-school teacher qualification certificate · 200+ volunteer hours · holder of a National Scholarship and a Yang Zhenning Scholarship.</p>
+        <p class="field__text" style="margin-top: var(--space-8);" data-i18n="about.skills.note">Other: high-school teacher qualification certificate · 200+ volunteer hours · holder of a National Scholarship and a Yang Zhenning Scholarship.</p>
       </div>
     </section>
   </main>
@@ -151,21 +163,21 @@
     <div class="container site-footer__inner">
       <div>
         <strong style="color: var(--color-text); font-family: var(--font-display);">SU Jiajie</strong><br>
-        Research Assistant, School of Psychology, Shenzhen University<br>
+        <span data-i18n="footer.role">Research Assistant, School of Psychology, Shenzhen University</span><br>
         <a href="mailto:joe_su.dg@foxmail.com">joe_su.dg@foxmail.com</a>
       </div>
       <nav class="site-footer__nav" aria-label="Footer">
-        <a href="about.html">About</a>
-        <a href="research.html">Research</a>
-        <a href="projects.html">Projects</a>
-        <a href="publications.html">Publications</a>
-        <a href="cv.html">CV</a>
-        <a href="contact.html">Contact</a>
+        <a href="about.html" data-i18n="nav.about">About</a>
+        <a href="research.html" data-i18n="nav.research">Research</a>
+        <a href="projects.html" data-i18n="nav.projects">Projects</a>
+        <a href="publications.html" data-i18n="nav.publications">Publications</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
       </nav>
-      <div>© <span data-year></span> SU Jiajie · Last updated Sep 2026</div>
+      <div>© <span data-year></span><span data-i18n="footer.rights"> · SU Jiajie · Last updated Sep 2026</span></div>
     </div>
   </footer>
 
+  <script src="data/i18n.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

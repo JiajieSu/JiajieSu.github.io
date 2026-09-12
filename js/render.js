@@ -2,6 +2,8 @@
    CARD RENDERER — turns the data/*.js files into page content.
    You normally never need to edit this file: change the data
    files instead and the pages rebuild themselves.
+   It also picks Chinese (zh) text automatically when the
+   language toggle (data/i18n.js) is switched to 中文.
    ============================================================ */
 
 (function () {
@@ -16,40 +18,63 @@
     });
   }
 
-  /* ---------- one research / engineering project card ---------- */
+  /* ---------- language helpers ---------- */
+  var LANG = window.LANG === "zh" ? "zh" : "en";
+  /* pick the Chinese variant of a field when reading Chinese,
+     falling back to the English field when it is missing */
+  function pick(obj, field) {
+    if (LANG === "zh" && obj && obj.zh && obj.zh[field] != null) return obj.zh[field];
+    return obj ? obj[field] : undefined;
+  }
+  var L = (window.I18N && window.I18N[LANG]) || {};
+  function label(key, fallback) {
+    return L[key] != null ? L[key] : fallback;
+  }
+
+  /* ---------- one research / engineering project card ----------
+     Images are ALWAYS stacked above the text, full card width,
+     natural aspect ratio — never cropped. Multiple images
+     become multiple full-width rows, each with its caption. */
   function projectCard(p) {
     var media = "";
     var imgs = p.images
       ? p.images
       : p.image
-      ? [{ src: p.image, caption: p.imageCaption }]
+      ? [{ src: p.image, caption: p.imageCaption, zhCaption: p.zh ? p.zh.caption : null }]
       : [];
     if (imgs.length === 1) {
       media =
         '<figure class="card__media"><img src="images/' + esc(imgs[0].src) +
-        '" alt="' + esc(imgs[0].caption || p.title) + '" loading="lazy" decoding="async">' +
+        '" alt="' + esc(imgs[0].caption || pick(p, "title")) + '" loading="lazy" decoding="async">' +
         (imgs[0].caption
-          ? '<figcaption class="figure-caption" style="padding:12px 16px">' + esc(imgs[0].caption) + "</figcaption>"
+          ? '<figcaption class="figure-caption" style="padding:12px 16px">' + esc(LANG === "zh" && p.zh && p.zh.caption ? p.zh.caption : imgs[0].caption) + "</figcaption>"
           : "") +
         "</figure>";
     } else if (imgs.length > 1) {
       media =
-        '<figure class="card__media" style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--color-divider)">' +
+        '<div class="card__media card__media--stack">' +
         imgs
           .map(function (im) {
-            return '<img src="images/' + esc(im.src) + '" alt="' + esc(im.caption || p.title) + '" loading="lazy" decoding="async" style="max-height:260px;width:100%;object-fit:cover;background:var(--color-surface-2)">';
+            var cap = LANG === "zh" && im.zhCaption ? im.zhCaption : im.caption;
+            return (
+              '<figure class="card__media--item">' +
+              '<img src="images/' + esc(im.src) + '" alt="' + esc(cap || pick(p, "title")) + '" loading="lazy" decoding="async" style="display:block;width:100%;height:auto;object-fit:contain;background:var(--color-surface)">' +
+              (cap ? '<figcaption class="figure-caption">' + esc(cap) + "</figcaption>" : "") +
+              "</figure>"
+            );
           })
           .join("") +
-        '<figcaption class="figure-caption" style="grid-column:1/-1;padding:10px 14px;background:var(--color-surface-2)">' +
-        imgs.map(function (im) { return esc(im.caption); }).join(" · ") +
-        "</figcaption></figure>";
+        "</div>";
     }
 
     var fields = "";
-    if (p.question && !p.featured) fields += field("Research Question", '<em style="font-style:italic">' + esc(p.question) + "</em>", true);
-    if (p.methods) fields += field("Methods", '<ul class="field__list">' + p.methods.map(function (m) { return "<li>" + esc(m) + "</li>"; }).join("") + "</ul>");
-    if (p.contribution) fields += field("My Contribution", "<ul>" + p.contribution.map(function (c) { return "<li>• " + esc(c) + "</li>"; }).join("") + "</ul>");
-    if (p.outcomes) fields += field("Outcomes", esc(p.outcomes));
+    if (pick(p, "question") && !p.featured)
+      fields += field(label("label.question", "Research Question"), '<em style="font-style:italic">' + esc(pick(p, "question")) + "</em>", true);
+    if (pick(p, "methods"))
+      fields += field(label("label.methods", "Methods"), '<ul class="field__list">' + pick(p, "methods").map(function (m) { return "<li>" + esc(m) + "</li>"; }).join("") + "</ul>");
+    if (pick(p, "contribution"))
+      fields += field(label("label.contribution", "My Contribution"), "<ul>" + pick(p, "contribution").map(function (c) { return "• " + esc(c); }).join("<br>") + "</ul>");
+    if (pick(p, "outcomes")) fields += field(label("label.outcomes", "Outcomes"), esc(pick(p, "outcomes")));
 
     var links = "";
     if (p.links && p.links.length) {
@@ -57,14 +82,15 @@
         '<div class="card__links">' +
         p.links
           .map(function (l) {
-            return '<a href="' + esc(l.url) + '" target="_blank" rel="noopener noreferrer">' + esc(l.label) + " →</a>";
+            return '<a href="' + esc(l.url) + '"' + (/^https?:/.test(l.url) ? ' target="_blank" rel="noopener noreferrer"' : "") + ">" + esc(LANG === "zh" && l.zhLabel ? l.zhLabel : l.label) + " →</a>";
           })
           .join("") +
         "</div>";
     }
 
     var why = "";
-    if (p.why) why = '<div class="why-box"><span class="field__label">Why this shapes my PhD direction</span>' + esc(p.why) + "</div>";
+    var whyText = pick(p, "why");
+    if (whyText) why = '<div class="why-box"><span class="field__label">' + esc(label("label.why", "Why this shapes my PhD direction")) + "</span>" + esc(whyText) + "</div>";
 
     var skills = p.skills
       ? '<ul class="field__list">' + p.skills.map(function (s) { return "<li>" + esc(s) + "</li>"; }).join("") + "</ul>"
@@ -74,19 +100,19 @@
       '<article class="card ' + (p.featured ? "card--featured" : "card--stack") + ' fade-in">' +
         media +
         '<div class="card__body">' +
-        '<p class="card__kicker"><span class="theme-dot"></span>' + esc(p.kicker || "") + "</p>" +
-        "<h3>" + esc(p.title) + "</h3>" +
-        '<p class="card__role"><strong>' + esc(p.role) + "</strong>" + (p.period ? " · " + esc(p.period) : "") + "</p>" +
-        (p.question && p.featured ? '<p class="card__question">' + esc(p.question) + "</p>" : "") +
+        '<p class="card__kicker"><span class="theme-dot"></span>' + esc(pick(p, "kicker") || "") + "</p>" +
+        "<h3>" + esc(pick(p, "title")) + "</h3>" +
+        '<p class="card__role"><strong>' + esc(pick(p, "role")) + "</strong>" + (pick(p, "period") ? " · " + esc(pick(p, "period")) : "") + "</p>" +
+        (pick(p, "question") && p.featured ? '<p class="card__question">' + esc(pick(p, "question")) + "</p>" : "") +
         fields +
-        (skills ? '<div class="field"><span class="field__label">Skills</span>' + skills + "</div>" : "") +
+        (skills ? '<div class="field"><span class="field__label">' + esc(label("label.skills", "Skills")) + "</span>" + skills + "</div>" : "") +
         why + links +
         "</div></article>"
     );
 
-    function field(label, html, plain) {
+    function field(fieldLabel, html, plain) {
       return (
-        '<div class="field"><span class="field__label">' + esc(label) + "</span>" +
+        '<div class="field"><span class="field__label">' + esc(fieldLabel) + "</span>" +
         '<div class="field__text" ' + (plain ? 'style="font-style:italic"' : "") + ">" + html + "</div></div>"
       );
     }
@@ -114,8 +140,8 @@
     window.RESEARCH_THEMES.forEach(function (theme) {
       var sec = el(
         '<section id="' + esc(theme.id) + '" class="theme-group fade-in">' +
-        '<div class="theme-group__head"><h2><span style="color:var(--color-accent)">' + esc(theme.num) + '.</span> ' + esc(theme.title) + "</h2></div>" +
-        '<p class="theme-group__blurb">' + esc(theme.blurb) + "</p>" +
+        '<div class="theme-group__head"><h2><span style="color:var(--color-accent)">' + esc(theme.num) + '.</span> ' + esc(pick(theme, "title")) + "</h2></div>" +
+        '<p class="theme-group__blurb">' + esc(pick(theme, "blurb")) + "</p>" +
         '<div class="theme-group__cards"></div></section>'
       );
       var holder = sec.querySelector(".theme-group__cards");
@@ -132,8 +158,8 @@
     window.PROJECT_GROUPS.forEach(function (group) {
       var sec = el(
         '<section ' + (group.id ? 'id="' + esc(group.id) + '"' : "") + ' class="theme-group fade-in">' +
-        '<div class="theme-group__head"><h2>' + esc(group.title) + "</h2></div>" +
-        '<p class="theme-group__blurb">' + esc(group.blurb) + "</p>" +
+        '<div class="theme-group__head"><h2>' + esc(pick(group, "title")) + "</h2></div>" +
+        '<p class="theme-group__blurb">' + esc(pick(group, "blurb")) + "</p>" +
         '<div class="theme-group__cards"></div></section>'
       );
       var holder = sec.querySelector(".theme-group__cards");
@@ -149,9 +175,9 @@
           holder.appendChild(
             el(
               '<article class="card card--stack fade-in">' +
-              "<h3>" + esc(c.title) + "</h3>" +
-              '<p class="card__role"><strong>' + esc(c.org) + "</strong></p>" +
-              '<p class="field__text">' + esc(c.text) + "</p></article>"
+              "<h3>" + esc(pick(c, "title")) + "</h3>" +
+              '<p class="card__role"><strong>' + esc(pick(c, "org")) + "</strong></p>" +
+              '<p class="field__text">' + esc(pick(c, "text")) + "</p></article>"
             )
           );
         });
@@ -168,11 +194,11 @@
         el(
           '<article class="pub-item fade-in">' +
           '<p class="overline" style="margin-bottom:8px">' + esc(p.year) + "</p>" +
-          '<h3 class="pub-item__title">' + esc(p.title) + "</h3>" +
+          '<h3 class="pub-item__title">' + esc(pick(p, "title")) + "</h3>" +
           '<p class="pub-item__meta">' + esc(p.authors) + " · <em>" + esc(p.venue) + "</em></p>" +
-          '<p class="field__text">' + esc(p.note) + "</p>" +
+          '<p class="field__text">' + esc(pick(p, "note")) + "</p>" +
           (p.link
-            ? '<div class="card__links"><a href="' + esc(p.link) + '" target="_blank" rel="noopener noreferrer">' + esc(p.linkLabel || "View publication") + " →</a></div>"
+            ? '<div class="card__links"><a href="' + esc(p.link) + '" target="_blank" rel="noopener noreferrer">' + esc(pick(p, "linkLabel") || label("label.viewPub", "View publication")) + " →</a></div>"
             : "") +
           "</article>"
         )
@@ -186,10 +212,10 @@
       patRoot.appendChild(
         el(
           "<tr>" +
-          "<td>" + esc(p.title) + (p.featured ? ' <span style="background:var(--color-accent-soft);color:var(--color-accent);font-weight:600;font-size:var(--text-xs);padding:2px 10px;border-radius:var(--radius-full);white-space:nowrap">newest</span>' : "") + "</td>" +
-          "<td>" + esc(p.number) + "<br><span class='field__label' style='margin:0'>" + esc(p.role) + "</span></td>" +
-          "<td>" + esc(p.org) + "</td>" +
-          "<td>" + esc(p.date) + "</td>" +
+          "<td>" + esc(pick(p, "title")) + (p.featured ? ' <span style="background:var(--color-accent-soft);color:var(--color-accent);font-weight:600;font-size:var(--text-xs);padding:2px 10px;border-radius:var(--radius-full);white-space:nowrap">' + esc(label("label.newest", "newest")) + "</span>" : "") + "</td>" +
+          "<td>" + esc(p.number) + "<br><span class='field__label' style='margin:0'>" + esc(pick(p, "role") || label("label.coinventor", "Co-inventor")) + "</span></td>" +
+          "<td>" + esc(pick(p, "org")) + "</td>" +
+          "<td>" + esc(pick(p, "date")) + "</td>" +
           "</tr>"
         )
       );

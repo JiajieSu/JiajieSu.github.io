@@ -10,12 +10,13 @@
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&family=Public+Sans:wght@300..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400..700;1,8..60,400..700&family=Public+Sans:wght@300..700&family=Noto+Serif+SC:wght@400..700&family=Noto+Sans+SC:wght@300..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/lang.js"></script>
 </head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
+<body data-i18n-doc="doc.home">
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
 
   <header class="site-header">
     <div class="container site-header__inner">
@@ -26,19 +27,19 @@
           <path d="M9.5 21.5 C14 16, 16 12, 22.5 10.2"/>
         </svg>
         <span>
-          <span class="brand__name">SU Jiajie</span>
-          <span class="brand__sub">Human Factors · Psychology × Engineering</span>
+          <span class="brand__name" data-i18n="brand.name">SU Jiajie</span>
+          <span class="brand__sub" data-i18n="brand.sub">Human Factors · Psychology × Engineering</span>
         </span>
       </a>
       <nav id="site-nav" class="nav" aria-label="Main">
-        <a href="about.html">About</a>
-        <a href="research.html">Research</a>
-        <a href="projects.html">Projects</a>
-        <a href="publications.html">Publications</a>
-        <a href="cv.html">CV</a>
-        <a href="contact.html">Contact</a>
+        <a href="about.html" data-i18n="nav.about">About</a>
+        <a href="research.html" data-i18n="nav.research">Research</a>
+        <a href="projects.html" data-i18n="nav.projects">Projects</a>
+        <a href="publications.html" data-i18n="nav.publications">Publications</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
       </nav>
       <div class="header-actions">
+        <button class="lang-toggle" data-lang-toggle type="button" aria-label="切换语言">中文</button>
         <button class="theme-toggle" data-theme-toggle type="button" aria-label="Switch theme"></button>
         <button class="nav-toggle" data-nav-toggle type="button" aria-label="Open menu" aria-expanded="false">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
@@ -52,17 +53,17 @@
     <!-- ============ HERO ============ -->
     <section class="hero">
       <div class="container">
-        <p class="hero__eyebrow">Research Assistant · School of Psychology, Shenzhen University</p>
-        <h1>SU Jiajie</h1>
-        <p class="hero__statement">I use engineering, sensing, and computational modeling to study how humans respond in complex technological systems — currently motion sickness in VR and automated driving.</p>
+        <p class="hero__eyebrow" data-i18n="home.eyebrow">Research Assistant · School of Psychology, Shenzhen University</p>
+        <h1 data-i18n="home.name">SU Jiajie</h1>
+        <p class="hero__statement" data-i18n="home.statement">I use engineering, sensing, and computational modeling to study how humans respond in complex technological systems — currently motion sickness in VR and automated driving.</p>
         <div class="hero__meta">
-          <span><span class="dot"></span>Human Factors &amp; Motion Sickness</span>
-          <span><span class="dot"></span>DTI Brain Networks × Machine Learning</span>
-          <span><span class="dot"></span>VR &amp; Motion-Platform Systems</span>
+          <span><span class="dot"></span><span data-i18n="home.meta1">Human Factors &amp; Motion Sickness</span></span>
+          <span><span class="dot"></span><span data-i18n="home.meta2">DTI Brain Networks × Machine Learning</span></span>
+          <span><span class="dot"></span><span data-i18n="home.meta3">VR &amp; Motion-Platform Systems</span></span>
         </div>
         <div class="hero__actions">
-          <a class="btn btn--primary" href="files/SU-Jiajie-CV.pdf" target="_blank" rel="noopener noreferrer">Download CV (PDF)</a>
-          <a class="btn btn--ghost" href="research.html">Explore my research</a>
+          <a class="btn btn--primary" href="files/SU-Jiajie-CV.pdf" target="_blank" rel="noopener noreferrer" data-i18n="home.btnCV">View / Download CV (PDF)</a>
+          <a class="btn btn--ghost" href="research.html" data-i18n="home.btnResearch">Explore my research</a>
         </div>
       </div>
     </section>
@@ -70,24 +71,24 @@
     <!-- ============ RESEARCH INTERESTS ============ -->
     <section class="section">
       <div class="container">
-        <p class="overline">Research Interests</p>
-        <h2 class="section-title">Three questions drive my work</h2>
-        <p class="section-intro">My path runs from mechanical engineering to psychology, and each of these questions needs both.</p>
+        <p class="overline" data-i18n="home.interests.overline">Research Interests</p>
+        <h2 class="section-title" data-i18n="home.interests.title">Three questions drive my work</h2>
+        <p class="section-intro" data-i18n="home.interests.intro">My path runs from mechanical engineering to psychology, and each of these questions needs both.</p>
         <div class="interests">
           <article class="interest-card fade-in">
             <span class="interest-card__num">01</span>
-            <h3>Human Factors &amp; Motion Sickness</h3>
-            <p>Why do VR and automated driving make people sick? I predict susceptibility from DTI-derived brain networks and study how it differs between adults and children.</p>
+            <h3 data-i18n="home.ic1.title">Human Factors &amp; Motion Sickness</h3>
+            <p data-i18n="home.ic1.text">Why do VR and automated driving make people sick? I predict susceptibility from DTI-derived brain networks and study how it differs between adults and children.</p>
           </article>
           <article class="interest-card fade-in">
             <span class="interest-card__num">02</span>
-            <h3>Human–Technology Interaction</h3>
-            <p>How do interface design — predictability cues, non-driving tasks, feedback — shape comfort and performance inside VR, vehicles, and robotic systems?</p>
+            <h3 data-i18n="home.ic2.title">Human–Technology Interaction</h3>
+            <p data-i18n="home.ic2.text">How do interface design — predictability cues, non-driving tasks, feedback — shape comfort and performance inside VR, vehicles, and robotic systems?</p>
           </article>
           <article class="interest-card fade-in">
             <span class="interest-card__num">03</span>
-            <h3>Engineering Methods for Human Research</h3>
-            <p>Experiments need apparatus. I build the VR environments, six-axis platforms, and data pipelines that psychological studies run on.</p>
+            <h3 data-i18n="home.ic3.title">Engineering Methods for Human Research</h3>
+            <p data-i18n="home.ic3.text">Experiments need apparatus. I build the VR environments, six-axis platforms, and data pipelines that psychological studies run on.</p>
           </article>
         </div>
       </div>
@@ -96,29 +97,29 @@
     <!-- ============ TRAJECTORY ============ -->
     <section class="section" style="background: var(--color-surface-2); border-block: 1px solid var(--color-divider);">
       <div class="container">
-        <p class="overline">My Trajectory</p>
-        <h2 class="section-title">One continuous toolkit, four stages</h2>
-        <p class="section-intro">Not a career change — a steady accumulation: systems building, data modeling, human-response measurement, and finally human-centered design.</p>
+        <p class="overline" data-i18n="home.traj.overline">My Trajectory</p>
+        <h2 class="section-title" data-i18n="home.traj.title">One continuous toolkit, four stages</h2>
+        <p class="section-intro" data-i18n="home.traj.intro">Not a career change — a steady accumulation: systems building, data modeling, human-response measurement, and finally human-centered design.</p>
         <div class="trajectory">
           <article class="trajectory__step fade-in">
-            <span class="trajectory__period">2020 – 2024</span>
-            <span class="trajectory__title">Mechanical Engineering</span>
-            <p>B.Eng., Dongguan University of Technology — rank 1/194, National Scholarship, 7 patents, national innovation program lead.</p>
+            <span class="trajectory__period" data-i18n="home.t1.period">2020 – 2024</span>
+            <span class="trajectory__title" data-i18n="home.t1.title">Mechanical Engineering</span>
+            <p data-i18n="home.t1.text">B.Eng., Dongguan University of Technology — rank 1/194, National Scholarship, 7 patents, national innovation program lead.</p>
           </article>
           <article class="trajectory__step fade-in">
-            <span class="trajectory__period">2024 – 2025</span>
-            <span class="trajectory__title">Robotics &amp; AI</span>
-            <p>M.Sc., CUHK (project grade A−) + CAIR internship: teleoperated arms, dexterous hands, computer-vision swarm tracking.</p>
+            <span class="trajectory__period" data-i18n="home.t2.period">2024 – 2025</span>
+            <span class="trajectory__title" data-i18n="home.t2.title">Robotics &amp; AI</span>
+            <p data-i18n="home.t2.text">M.Sc., CUHK (project grade A−) + CAIR internship: teleoperated arms, dexterous hands, computer-vision swarm tracking.</p>
           </article>
           <article class="trajectory__step trajectory__step--current fade-in">
-            <span class="trajectory__period">2026 – Present</span>
-            <span class="trajectory__title">Psychology Research</span>
-            <p>Research assistant, Shenzhen University: motion sickness, DTI brain networks, EEG, VR, six-axis motion platform.</p>
+            <span class="trajectory__period" data-i18n="home.t3.period">2026 – Present</span>
+            <span class="trajectory__title" data-i18n="home.t3.title">Psychology Research</span>
+            <p data-i18n="home.t3.text">Research assistant, Shenzhen University: motion sickness, DTI brain networks, EEG, VR, six-axis motion platform.</p>
           </article>
           <article class="trajectory__step trajectory__step--final fade-in">
-            <span class="trajectory__period">Next</span>
-            <span class="trajectory__title">Human Factors PhD</span>
-            <p>Applying to doctoral programs in human factors and human–technology interaction.</p>
+            <span class="trajectory__period" data-i18n="home.t4.period">Next</span>
+            <span class="trajectory__title" data-i18n="home.t4.title">Human Factors PhD</span>
+            <p data-i18n="home.t4.text">Applying to doctoral programs in human factors and human–technology interaction.</p>
           </article>
         </div>
       </div>
@@ -127,9 +128,9 @@
     <!-- ============ FEATURED RESEARCH ============ -->
     <section class="section">
       <div class="container">
-        <p class="overline">Featured Research</p>
-        <h2 class="section-title">Three projects that tell the story</h2>
-        <p class="section-intro">Brain-based prediction of motion sickness, real-time machine perception, and precision teleoperation — the full span from human data to engineered systems. <a href="research.html">See all research →</a></p>
+        <p class="overline" data-i18n="home.feat.overline">Featured Research</p>
+        <h2 class="section-title" data-i18n="home.feat.title">Three projects that tell the story</h2>
+        <p class="section-intro"><span data-i18n="home.feat.intro">Brain-based prediction of motion sickness, real-time machine perception, and precision teleoperation — the full span from human data to engineered systems.</span> <a href="research.html" data-i18n="home.feat.all">See all research →</a></p>
         <div class="theme-group__cards" data-home-features="dti-motion-sickness, microrobot-swarm, cair-teleoperation"></div>
       </div>
     </section>
@@ -138,10 +139,10 @@
     <section class="section--tight">
       <div class="container">
         <div class="why-box" style="max-width: 720px; padding: var(--space-8);">
-          <span class="field__label" style="font-size: var(--text-xs); letter-spacing: 0.14em;">Looking ahead</span>
-          <p style="font-family: var(--font-display); font-size: var(--text-lg); color: var(--color-text); margin-bottom: var(--space-3);">I am seeking a PhD position in Human Factors / Human–Technology Interaction.</p>
-          <p class="field__text" style="margin-bottom: var(--space-4);">If your lab works on motion sickness, VR/AR ergonomics, transportation human factors, or neuroergonomics, I would be glad to talk — my CV, publications, and full project archive are one click away.</p>
-          <a class="btn btn--primary" href="contact.html">Get in touch</a>
+          <span class="field__label" style="font-size: var(--text-xs); letter-spacing: 0.14em;" data-i18n="home.phd.label">Looking ahead</span>
+          <p style="font-family: var(--font-display); font-size: var(--text-lg); color: var(--color-text); margin-bottom: var(--space-3);" data-i18n="home.phd.title">I am seeking a PhD position in Human Factors / Human–Technology Interaction.</p>
+          <p class="field__text" style="margin-bottom: var(--space-4);" data-i18n="home.phd.text">If your lab works on motion sickness, VR/AR ergonomics, transportation human factors, or neuroergonomics, I would be glad to talk — my CV, publications, and full project archive are one click away.</p>
+          <a class="btn btn--primary" href="contact.html" data-i18n="home.phd.btn">Get in touch</a>
         </div>
       </div>
     </section>
@@ -151,24 +152,24 @@
     <div class="container site-footer__inner">
       <div>
         <strong style="color: var(--color-text); font-family: var(--font-display);">SU Jiajie</strong><br>
-        Research Assistant, School of Psychology, Shenzhen University<br>
+        <span data-i18n="footer.role">Research Assistant, School of Psychology, Shenzhen University</span><br>
         <a href="mailto:joe_su.dg@foxmail.com">joe_su.dg@foxmail.com</a>
       </div>
       <nav class="site-footer__nav" aria-label="Footer">
-        <a href="about.html">About</a>
-        <a href="research.html">Research</a>
-        <a href="projects.html">Projects</a>
-        <a href="publications.html">Publications</a>
-        <a href="cv.html">CV</a>
-        <a href="contact.html">Contact</a>
+        <a href="about.html" data-i18n="nav.about">About</a>
+        <a href="research.html" data-i18n="nav.research">Research</a>
+        <a href="projects.html" data-i18n="nav.projects">Projects</a>
+        <a href="publications.html" data-i18n="nav.publications">Publications</a>
+        <a href="contact.html" data-i18n="nav.contact">Contact</a>
       </nav>
-      <div>© <span data-year></span> SU Jiajie · Last updated Sep 2026</div>
+      <div>© <span data-year></span><span data-i18n="footer.rights"> · SU Jiajie · Last updated Sep 2026</span></div>
     </div>
   </footer>
 
   <script src="data/research.js"></script>
   <script src="data/projects.js"></script>
   <script src="data/publications.js"></script>
+  <script src="data/i18n.js"></script>
   <script src="js/render.js"></script>
   <script src="js/main.js"></script>
 </body>
