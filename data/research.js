@@ -366,9 +366,9 @@ window.RESEARCH_THEMES = [
         outcomes:
           "A functioning teleoperation pipeline plus a co-filed patent on an IMU motion-capture data glove.",
         skills: ["Robotics", "Calibration", "Python", "Automation"],
-        image: "mechanism-structure.webp",
+        image: "data-glove-imu.webp",
         imageCaption:
-          "Mechatronic design work: geared actuator assembly and motorized linear stage developed during the internship.",
+          "Data-glove patent figures: finger-tracking exoskeleton, joint details, custom PCB, and the physical prototype worn on a hand.",
         links: [],
         why: "Months of making robots move taught me how much engineering skill matters for precision — and how much the human operator's perception matters too.",
         zh: {
@@ -414,9 +414,8 @@ window.RESEARCH_THEMES = [
         outcomes:
           "Chinese invention patent application (No. 202510644498.3, filed Oct 2025).",
         skills: ["Wearables", "IMU", "PCB Design", "CAD"],
-        image: "data-glove-imu.webp",
-        imageCaption:
-          "Data-glove patent figures: finger-tracking exoskeleton, joint details, custom PCB, and the physical prototype worn on a hand.",
+        image: null,
+        imageCaption: "",
         links: [{ label: "See patent details", zhLabel: "查看专利详情", url: "publications.html#patents" }],
         why: "A direct human–machine interface: engineering a device whose only job is reading human movement — my current research reads the same signals at brain level.",
         zh: {
@@ -453,8 +452,9 @@ window.RESEARCH_THEMES = [
         ],
         outcomes: "A working actuated endoscope platform for the medical-robotics project.",
         skills: ["Embedded Control", "CAN", "3D Printing", "CAD"],
-        image: null,
-        imageCaption: "",
+        image: "mechanism-structure.webp",
+        imageCaption:
+          "Mechatronic design work: geared actuator assembly and motorized linear stage developed during the internship.",
         links: [],
         why: "Medical devices live or die by how safely a human can operate them — my first taste of human-centered medical engineering.",
         zh: {
