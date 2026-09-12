@@ -697,6 +697,20 @@ main figure > img {
   height: auto;
   object-fit: contain;
 }
+/* when a stacked card HAS a picture, the picture bleeds to the
+   card edges (true full width) and only the text keeps padding */
+.card--stack.card--with-media {
+  padding: 0;
+}
+.card--stack.card--with-media .card__media {
+  border-radius: 0;
+  border: 0;
+  border-bottom: 1px solid var(--color-divider);
+  margin-bottom: 0;
+}
+.card--stack.card--with-media .card__body {
+  padding: var(--space-6);
+}
 /* multiple images inside one card: full-width rows, one per row */
 .card__media--stack {
   display: block;

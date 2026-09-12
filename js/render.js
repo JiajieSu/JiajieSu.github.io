@@ -97,7 +97,8 @@
       : "";
 
     return el(
-      '<article class="card ' + (p.featured ? "card--featured" : "card--stack") + ' fade-in">' +
+      '<article class="card ' + (p.featured ? "card--featured" : "card--stack") +
+      (media ? " card--with-media" : "") + ' fade-in">' +
         media +
         '<div class="card__body">' +
         '<p class="card__kicker"><span class="theme-dot"></span>' + esc(pick(p, "kicker") || "") + "</p>" +
