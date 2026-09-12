@@ -23,11 +23,11 @@ window.RESEARCH_THEMES = [
   {
     id: "human-factors",
     num: "A",
-    title: "Human Factors & Motion Sickness",
+    title: "Human Factors",
     blurb:
       "My current work at Shenzhen University: understanding why humans get motion-sick in VR and automated driving, how it can be predicted from the brain's structural connectivity, and how interface and task design can mitigate it.",
     zh: {
-      title: "人因工程与晕动症",
+      title: "人因工程",
       blurb:
         "我在深圳大学的当前工作:理解人为什么在 VR 与自动驾驶中晕动、如何通过大脑结构连接预测个体易感性,以及界面与任务设计如何缓解它。",
     },
