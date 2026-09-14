@@ -48,7 +48,7 @@ window.PROJECT_GROUPS = [
         images: [
           { src: "mobile-manipulator.webp", caption: "Mobile manipulator: four-wheel chassis, articulated arm, and multi-probe end effector.", zhCaption: "移动机械臂:四轮底盘、关节臂与多探头末端执行器。" },
           { src: "motor-monitor-gui.webp", caption: "Monitoring software interface: login page and real-time telemetry for eight motors.", zhCaption: "监控软件界面:登录页与八路电机的实时遥测。" },
-          { src: "digital-twin-network.webp", caption: "System architecture: TCP/IP links between the physical robot, server, and digital twin.", zhCaption: "系统架构:物理机器人、服务器与数字孪生之间的 TCP/IP 连接。" },
+          { src: "communication.webp", caption: "System architecture: TCP/IP links between the physical robot, server, and digital twin.", zhCaption: "系统架构:物理机器人、服务器与数字孪生之间的 TCP/IP 连接。" },
           { src: "unity-simulation.webp", caption: "Unity virtual commissioning scene with planned navigation waypoints.", zhCaption: "Unity 虚拟调试场景与规划的导航路径点。" },
         ],
         links: [{ label: "See patent details", zhLabel: "查看专利详情", url: "publications.html#patents" }],
