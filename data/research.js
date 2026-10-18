@@ -94,7 +94,6 @@ window.RESEARCH_THEMES = [
           "How do predictability cues (forewarning of vehicle motion) and non-driving-related tasks (NDRTs) interact in shaping motion sickness in automated driving?",
         methods: [
           "Experimental design (factorial, cue × task)",
-          "Six-axis motion platform",
           "Motion-sickness measurement",
           "Statistical analysis (SPSS)",
         ],
@@ -118,7 +117,6 @@ window.RESEARCH_THEMES = [
             "在自动驾驶场景中,运动预测性线索(对车辆运动的提前告知)与非驾驶相关任务(NDRT)如何交互地影响晕动症?",
           methods: [
             "析因实验设计(线索 × 任务)",
-            "六自由度运动平台",
             "晕动测量",
             "SPSS 统计分析",
           ],
